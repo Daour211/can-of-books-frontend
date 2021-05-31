@@ -18,31 +18,31 @@ import Login from './login.js'
 class App extends React.Component {
 
   render() {
-    console.log('app', this.props)
+    // console.log('app', this.props)
     return (
-      <>
+      <div>
         <Router>
-          
-            <Header />
-            <Switch>
-              <Route exact path="/">
-                {
-                  (this.props.auth0.isAuthenticated) ? <MyFavoriteBooks /> : <Login/>
-                }
-                {/* TODO: if the user is logged in, render the `MyFavoriteBooks` component, if they are not, render the `Login` component */}
-              </Route>
 
-              <Route  path='/profile'>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              {
+                (this.props.auth0.isAuthenticated) ? <MyFavoriteBooks /> : <Login />
+              }
+              {/* TODO: if the user is logged in, render the `MyFavoriteBooks` component, if they are not, render the `Login` component */}
+            </Route>
 
-                <Profile />
+            <Route path='/profile'>
 
-              </Route>
-              {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
-            </Switch>
-            <Footer />
-          
+              <Profile />
+
+            </Route>
+            {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
+          </Switch>
+          <Footer />
+
         </Router>
-      </>
+      </div>
     )
   }
 }

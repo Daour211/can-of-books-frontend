@@ -5,18 +5,18 @@ class Profile extends Component {
     render() {
         const { user, isAuthenticated } = this.props.auth0;
         return (
-            <>
+            <div>
                 {
 
                     isAuthenticated &&
-                    <>
+                    <div>
 
-                        <img src={user.picture}/>
+                        <img src={user.picture} />
                         <div>Hello {user.name}</div>
                         <div>Email {user.email}</div>
-                    </>
+                    </div>
                 }
-            </>
+            </div>
         )
     }
 }
