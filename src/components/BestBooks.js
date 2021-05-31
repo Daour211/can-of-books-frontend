@@ -7,14 +7,14 @@ class BestBooks extends React.Component {
         super(props);
         this.state = {
             bookData: [],
-            server: process.env.REACT_APP_PORT
+            // server: process.env.REACT_APP_SERVER
         }
     }
     componentDidMount = async () => {
         const { user } = this.props.auth0;
         console.log('inside function');
         console.log(user);
-        let resultArray = await axios.get(`${this.state.server}/books?email=${user.email}`)
+        let resultArray = await axios.get(`http://localhost:3001/books?email=${user.email}`)
         console.log(resultArray);
         this.setState({
             bookData: resultArray.data
@@ -28,17 +28,20 @@ class BestBooks extends React.Component {
                     {this.state.bookData.length &&
                         this.state.bookData.map((item, idx) => {
                             return (
-                                    <Carousel.Item interval={1000}>
-                                        <img
-                                            className="d-block w-100"
-                                            src={item.imgURL}
-                                            alt="First slide"
-                                        />
-                                        <Carousel.Caption>
-                                            <h3> {item.name}</h3>
-                                            <p>{item.description}</p>
-                                        </Carousel.Caption>
-                                    </Carousel.Item>
+                                <Carousel.Item key={idx} interval={1000}>
+
+                                    <img
+                                        className="d-block w-100"
+                                        src={item.imgURL}
+                                        alt="First slide" width='100' height='200'
+                                    />
+                                    <Carousel.Caption>
+                                        {/* <h3> {item.name}</h3> */}
+                                        {/* <p>{item.description}</p> */}
+                                    </Carousel.Caption>
+                                    <h4> {item.name}</h4> 
+                                    <p>{item.description}</p>
+                                </Carousel.Item>
                             )
                         })
                     }
