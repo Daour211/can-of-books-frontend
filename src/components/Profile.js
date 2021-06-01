@@ -11,7 +11,7 @@ class Profile extends Component {
                     isAuthenticated &&
                     <div>
 
-                        <img src={user.picture} />
+                        <img src={user.picture} alt="Me" />
                         <div>Hello {user.name}</div>
                         <div>Email {user.email}</div>
                     </div>
