@@ -59,7 +59,7 @@ class AddBook extends React.Component {
             newStatus: this.state.newStatus,
         }
         // console.log(bookData);
-        const newBook = await axios.post(`http://localhost:3001/addbook`,bookData)
+        const newBook = await axios.post(`${process.env.REACT_APP_SERVER}/addbook`,bookData)
         console.log(newBook.data.books);
         this.props.updateBookData(newBook.data.books);
         this.props.hideModal();

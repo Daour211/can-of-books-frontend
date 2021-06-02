@@ -33,7 +33,7 @@ class BestBooks extends React.Component {
         const { user } = this.props.auth0;
         // console.log('inside function');
         // console.log(user);
-        let resultArray = await axios.get(`http://localhost:3001/books?email=${user.email}`)
+        let resultArray = await axios.get(`${process.env.REACT_APP_SERVER}/books?email=${user.email}`)
         console.log(resultArray);
         this.setState({
             bookData: resultArray.data
@@ -46,7 +46,7 @@ class BestBooks extends React.Component {
         let { user } = this.props.auth0;
           user = {email : user.email}
         // console.log(idx);
-        const deleteBook = await axios.delete(`http://localhost:3001/deleteBook/${idx}`,{ params: user })
+        const deleteBook = await axios.delete(`${process.env.REACT_APP_SERVER}/deleteBook/${idx}`,{ params: user })
 
         this.setState({
             bookData: deleteBook.data
@@ -140,7 +140,7 @@ class BestBooks extends React.Component {
             email: user.email
         }
 
-        let updatedBook = await axios.put(`http://localhost:3001/updateBook/${this.state.index}`, sentData)
+        let updatedBook = await axios.put(`${process.env.REACT_APP_SERVER}/updateBook/${this.state.index}`, sentData)
         console.log(updatedBook);
 
         this.setState({
