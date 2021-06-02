@@ -1,11 +1,11 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form'
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { withAuth0 } from "@auth0/auth0-react";
+import { withAuth0 } from "@auth0/auth0-react";;
 
-import Card from 'react-bootstrap/Card'
+// import Card from 'react-bootstrap/Card'
 
 
 class AddBook extends React.Component {
